@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+    <button class="btn btn-outline-info mb-2"><a class="nav-item nav-link" href="{{ url_for('update_matchups', user=user.id) }}">Update Matchups</a></button>
+    <br>
+    {% if status.round0 == 'Playing' %}
+        <button class="btn btn-outline-info mb-2"><a href="{{ url_for('update_results0', user=user.id) }}">Update Round 0 Results</a></button>
+        <br>
+    {% elif status.round1 == 'Playing' %}
+        <button class="btn btn-outline-info mb-2"><a href="{{ url_for('update_results1', user=user.id) }}">Update Round 1 Results</a></button>
+        <br>
+    {% elif status.round2 == 'Playing' %}
+        <button class="btn btn-outline-info mb-2"><a href="{{ url_for('update_results2', user=user.id) }}">Update Round 2 Results</a></button>
+        <br>
+    {% elif status.round3 == 'Playing' %}
+        <button class="btn btn-outline-info mb-2"><a href="{{ url_for('update_results3', user=user.id) }}">Update Round 3 Results</a></button>
+        <br>
+    {% elif status.round4 == 'Playing' %}
+        <button class="btn btn-outline-info mb-2"><a href="{{ url_for('update_results4', user=user.id) }}">Update Round 4 Results</a></button>
+        <br>
+    {% endif %}
+    <button class="btn btn-outline-info mb-2"><a class="nav-item nav-link" href="{{ url_for('update_skaters', user=user.id) }}">Update Skater Points</a></button>
+{% endblock content %}

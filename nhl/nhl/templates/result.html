@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+    <a class="nav-item nav-link" href=#>Update Matchups</a>
+    <br>
+    <a class="nav-item nav-link" href="{{ url_for('update_results0') }}">Round0 Results</a>
+    <br>
+    <a class="nav-item nav-link" href="{{ url_for('update_results1') }}">Round1 Results</a>
+    <br>
+    <a class="nav-item nav-link" href="{{ url_for('update_results2') }}">Round2 Results</a>
+    <br>
+    <a class="nav-item nav-link" href="{{ url_for('update_results3') }}">Round3 Results</a>
+    <br>
+    <a class="nav-item nav-link" href="{{ url_for('update_results4') }}">Round4 Results</a>
+    <br>
+    <a class="nav-item nav-link" href=#>Update Skater Points</a>
+{% endblock content %}

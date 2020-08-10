@@ -1,0 +1,173 @@
+{% extends "layout_everyone.html" %}
+{% block content %}
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Everyones Picks</title>
+    </head>
+    <body>
+        {% if current_user.r4_picksin == 'True' %}
+            <div class="article-metadata mt-4"><h1 style="color:#5f788a;">Stanley Cup Finals Picks</h1></div>
+            <br>
+            <table style="width:100%", border="1">
+                <tr>
+                    <th>Name</th>
+                    <th>Game 1</th>
+                    <th>Game 2</th>
+                    <th>Game 3</th>
+                    <th>Game 4</th>
+                    <th>Game 5</th>
+                    <th>Game 6</th>
+                    <th>Game 7</th>
+                </tr>
+                {% for picks4 in everyone4 %}
+                    <tr>
+                        <th>{{ picks4.author }}</th>
+                        <th>{{ picks4.game1 }}</th>
+                        <th>{{ picks4.game2 }}</th>
+                        <th>{{ picks4.game3 }}</th>
+                        <th>{{ picks4.game4 }}</th>
+                        <th>{{ picks4.game5 }}</th>
+                        <th>{{ picks4.game6 }}</th>
+                        <th>{{ picks4.game7 }}</th>
+                    </tr>
+                {% endfor %}
+            </table>
+        <br>
+        {% endif %}
+        {% if current_user.r3_picksin == 'True'  %}
+            <div class="article-metadata mt-4"><h1 style="color:#5f788a;">Conference Finals Picks</h1></div>
+            <br>
+            <table style="width:100%">
+                <tr>
+                    <th>Name</th>
+                    <th>Series 1</th>
+                    <th>Series 2</th>
+                </tr>
+                {% for picks3 in everyone3 %}
+                    <tr>
+                        <th>{{ picks3.author }}</th>
+                        <th>{{ picks3.pick1 }} in {{ picks3.games1 }}</th>
+                        <th>{{ picks3.pick2 }} in {{ picks3.games2 }}</th>
+                    </tr>
+                {% endfor %}
+            </table>
+        <br>
+        {% endif %}
+        {% if current_user.r2_picksin == 'True'  %}
+            <div class="article-metadata mt-4"><h1 style="color:#5f788a;">Round 2 Picks</h1></div>
+            <br>
+            <table style="width:100%">
+                <tr>
+                    <th>Name</th>
+                    <th>Series 1</th>
+                    <th>Series 2</th>
+                    <th>Series 3</th>
+                    <th>Series 4</th>
+                </tr>
+                {% for picks2 in everyone2 %}
+                    <tr>
+                        <th>{{ picks2.author }}</th>
+                        <th>{{ picks2.pick1 }} in {{ picks2.games1 }}</th>
+                        <th>{{ picks2.pick2 }} in {{ picks2.games2 }}</th>
+                        <th>{{ picks2.pick3 }} in {{ picks2.games3 }}</th>
+                        <th>{{ picks2.pick4 }} in {{ picks2.games4 }}</th>
+                    </tr>
+                {% endfor %}
+            </table>
+        <br>
+        {% endif %}
+        {% if current_user.r1_picksin == 'True'  %}
+            <div class="article-metadata mt-4"><h1 style="color:#5f788a;">Round 1 Picks</h1></div>
+            <br>
+            <table style="width:100%">
+                <tr>
+                    <th>Name</th>
+                    <th>Series 1</th>
+                    <th>Series 2</th>
+                    <th>Series 3</th>
+                    <th>Series 4</th>
+                    <th>Series 5</th>
+                    <th>Series 6</th>
+                    <th>Series 7</th>
+                    <th>Series 8</th>
+                </tr>
+                {% for picks1 in everyone1 %}
+                    <tr>
+                        <th>{{ picks1.author }}</th>
+                        <th>{{ picks1.pick1 }} in {{ picks1.games1 }}</th>
+                        <th>{{ picks1.pick2 }} in {{ picks1.games2 }}</th>
+                        <th>{{ picks1.pick3 }} in {{ picks1.games3 }}</th>
+                        <th>{{ picks1.pick4 }} in {{ picks1.games4 }}</th>
+                        <th>{{ picks1.pick5 }} in {{ picks1.games5 }}</th>
+                        <th>{{ picks1.pick6 }} in {{ picks1.games6 }}</th>
+                        <th>{{ picks1.pick7 }} in {{ picks1.games7 }}</th>
+                        <th>{{ picks1.pick8 }} in {{ picks1.games8 }}</th>
+                    </tr>
+                {% endfor %}
+            </table>
+        <br>
+        {% endif %}
+        {% if current_user.r0_picksin == 'True'  %}
+            <div class="article-metadata mt-4"><h1 style="color:#5f788a;">Play In Round Picks</h1></div>
+            <br>
+            <table style="width:100%" border="1" align="left">
+                <tr>
+                    <th>Name</th>
+                    <th>Series 1</th>
+                    <th>Series 2</th>
+                    <th>Series 3</th>
+                    <th>Series 4</th>
+                    <th>Series 5</th>
+                    <th>Series 6</th>
+                    <th>Series 7</th>
+                    <th>Series 8</th>
+                </tr>
+                {% for picks in everyone0 %}
+                    <tr>
+                        <th>{{ picks.author }}</th>
+                        <th>{{ picks.pick1 }} in {{ picks.games1 }}</th>
+                        <th>{{ picks.pick2 }} in {{ picks.games2 }}</th>
+                        <th>{{ picks.pick3 }} in {{ picks.games3 }}</th>
+                        <th>{{ picks.pick4 }} in {{ picks.games4 }}</th>
+                        <th>{{ picks.pick5 }} in {{ picks.games5 }}</th>
+                        <th>{{ picks.pick6 }} in {{ picks.games6 }}</th>
+                        <th>{{ picks.pick7 }} in {{ picks.games7 }}</th>
+                        <th>{{ picks.pick8 }} in {{ picks.games8 }}</th>
+                    </tr>
+                {% endfor %}
+            </table>
+        <br>
+        {% endif %}
+        {% if current_user.r0_picksin == 'True'  %}
+            <div class="article-metadata mt-4"><h1 style="color:#5f788a;">Round Robin</h1></div>
+            <br>
+            <table style="width:100%" border="1" align="left">
+                <tr>
+                    <th>Name</th>
+                    <th>Round Robin E1</th>
+                    <th>Round Robin E2</th>
+                    <th>Round Robin E3</th>
+                    <th>Round Robin E4</th>
+                    <th>Round Robin W1</th>
+                    <th>Round Robin W2</th>
+                    <th>Round Robin W3</th>
+                    <th>Round Robin W4</th>
+                </tr>
+                {% for picks in everyone0 %}
+                    <tr>
+                        <th>{{ picks.author }}</th>
+                        <th>{{ picks.east_team1 }}</th>
+                        <th>{{ picks.east_team2 }}</th>
+                        <th>{{ picks.east_team3 }}</th>
+                        <th>{{ picks.east_team4 }}</th>
+                        <th>{{ picks.west_team1 }}</th>
+                        <th>{{ picks.west_team2 }}</th>
+                        <th>{{ picks.west_team3 }}</th>
+                        <th>{{ picks.west_team4 }}</th>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+    </body>
+{% endblock content %}

@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+{% block content %}
+    <body>
+        <h3>Click the Link to Make Picks for Each Round</h3>
+        <br>
+        <div class="container">
+            <div class="left">
+                {% if status.round0 == 'Playing' %}
+                    {% if playin.id %}
+                        <button class="btn btn-outline-info mb-2">Playin Picks Submitted</button>
+                    {% else %}
+                        <button class="btn btn-outline-info mb-2"><a href="{{ url_for('playin', user=user.id) }}">Make Play In Round Picks</a></button>
+                    {% endif %}
+                {% else %}
+                    {% if status.round0 == 'True' %}
+                        <button class="btn btn-outline-info mb-2">Play In completed</button>
+                    {% else %}
+                        <button class="btn btn-outline-info mb-2">Play In Not Available Yet</button>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+        <br>
+        <div class="container">
+            <div class="left">
+                {% if status.round1 == 'Playing' %}
+                    {% if round1.id %}
+                        <button class="btn btn-outline-info mb-2">Round 1 Submitted</button>
+                    {% else %}
+                        <button class="btn btn-outline-info mb-2"><a href="{{ url_for('round1', user=user.id) }}">Make Round 1 Picks</a></button>
+                    {% endif %}
+                {% else %}
+                    {% if status.round1 == 'True' %}
+                        <button class="btn btn-outline-info mb-2">Round 1 completed</button>
+                    {% else %}
+                        <button class="btn btn-outline-info mb-2">Round 1 Not Available Yet</button>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+        <br>
+        <div class="container">
+            <div class="left">
+                {% if status.round2 == 'Playing' %}
+                    {% if round2.id %}
+                        <button class="btn btn-outline-info mb-2">Round 2 Submitted</button>
+                    {% else %}
+                        <button class="btn btn-outline-info mb-2"><a href="{{ url_for('round2', user=user.id) }}">Make Round 2 Picks</a></button>
+                    {% endif %}
+                {% else %}
+                    {% if status.round2 == 'True' %}
+                        <button class="btn btn-outline-info mb-2">Round 2 completed</button>
+                    {% else %}
+                        <button class="btn btn-outline-info mb-2">Round 2 Not Available Yet</button>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+        <br>
+        <div class="container">
+            <div class="left">
+                {% if status.round3 == 'Playing' %}
+                    {% if round3.id %}
+                        <button class="btn btn-outline-info mb-2">Conference Finals Submitted</button>
+                    {% else %}
+                        <button class="btn btn-outline-info mb-2"><a href="{{ url_for('round3', user=user.id) }}">Make Conference Finals Picks</a></button>
+                    {% endif %}
+                {% else %}
+                    {% if status.round3 == 'True' %}
+                        <button class="btn btn-outline-info mb-2">Conference Finals completed</button>
+                    {% else %}
+                        <button class="btn btn-outline-info mb-2">Conference Finals Not Available Yet</button>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+        <br>
+        <div class="container">
+            <div class="left">
+                {% if status.round4 == 'Playing' %}
+                    {% if round4.id %}
+                        <button class="btn btn-outline-info mb-2">Stanley Cup Finals Submitted</button>
+                    {% else %}
+                        <button class="btn btn-outline-info mb-2"><a href="{{ url_for('round4', user=user.id) }}">Make Stanley Cup Finals Picks</a></button>
+                    {% endif %}
+                {% else %}
+                    {% if status.round4 == 'True' %}
+                        <button class="btn btn-outline-info mb-2">Stanley Cup Finals completed</button>
+                    {% else %}
+                        <button class="btn btn-outline-info mb-2">Stanley Cup Finals Not Available Yet</button>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </body>
+{% endblock content %}

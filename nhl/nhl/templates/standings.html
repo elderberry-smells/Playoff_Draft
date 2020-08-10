@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+    <head>
+        <meta charset="UTF-8">
+        <title>Covid Cup 2020 - Standings</title>
+    </head>
+    <body>
+        <div class="article-metadata mt-4"><h1 style="color:#5f788a;">Standings</h1></div>
+        <article class="media content-section">
+            <div class="media-body">
+                <table style="width:100%">
+                      <tr>
+                          <th>Name</th>
+                          <th>Play In Round</th>
+                          <th>Round 1</th>
+                          <th>Round 2</th>
+                          <th>Conference Finals</th>
+                          <th>Stanley Cup Finals</th>
+                          <th>Skater Totals</th>
+                          <th>Total Points</th>
+                     </tr>
+                     {% for t in totals %}
+                         <tr>
+                             <th>{{ t.user }}</th>
+                             <th>{{ t.round0 }}</th>
+                             <th>{{ t.round1 }}</th>
+                             <th>{{ t.round2 }}</th>
+                             <th>{{ t.round3 }}</th>
+                             <th>{{ t.round4 }}</th>
+                             <th>{{ t.player_totals }}</th>
+                             <th>{{ t.total_points }}</th>
+                         </tr>
+                     {% endfor %}
+                 </table>
+            </div>
+        </article>
+    </body>
+{% endblock content %}

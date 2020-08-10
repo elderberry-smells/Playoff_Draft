@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+    <head>
+        <meta charset="UTF-8">
+        <title>Covid Cup 2020 - Standings</title>
+    </head>
+    <body>
+        <div class="article-metadata mt-4"><h1 style="color:#5f788a;">Skater Totals</h1></div>
+        <article class="media content-section">
+            <div class="media-body">
+                <table style="width:100%">
+                      <tr>
+                          <th>Skater</th>
+                          <th>Owner</th>
+                          <th>Points</th>
+                     </tr>
+                     {% for t in skaters %}
+                         <tr>
+                             <th>{{ t.player }}</th>
+                             <th>{{ t.owner }}</th>
+                             <th>{{ t.points }}</th>
+                         </tr>
+                     {% endfor %}
+                 </table>
+            </div>
+        </article>
+    </body>
+{% endblock content %}
