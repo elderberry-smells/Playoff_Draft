@@ -1,9 +1,12 @@
 # Playoff_Draft
 Custom Draft for NHL Playoffs
 
-This app is for a custom website or Flask Host to run a custom playoff draft.
+This application is to run/manage a custom playoff draft set-up which is detailed below.
 
-## Rules For Covid Cup
+It runs on a Flask Framework to generate a localhost (or if you wanted to port to website).
+
+
+## Rules For Covid Cup -- How the draft works
 
 ### Play In Round
 
