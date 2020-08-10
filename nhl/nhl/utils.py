@@ -7,7 +7,7 @@ from flask import url_for
 
 def send_reset_email(user):
     token = user.get_reset_token()
-    msg = Message('Password Reset Request', sender='thisis100percentnotfake@gmail.com', recipients=[user.email])
+    msg = Message('Password Reset Request', sender='your apps email@gmail.com', recipients=[user.email])
     msg.body = f'''To reset your password, visit the following link: 
 {url_for('users.reset_token', token=token, _external=True)}
 
@@ -594,85 +594,4 @@ def update_matchups():
 
     scf_blank = SCF(winner1='TBD', winner2='TBD', winner3='TBD', winner4='TBD', winner5='TBD', winner6='TBD', winner7='TBD')
     db.session.add(scf_blank)
-    db.session.commit()
-
-
-def update_players():
-    player_dict = [
-        {
-            'username': 'Brian',
-            'email': 'admin@nhl.com',
-            'password': 'admin'
-        },
-        {
-            'username': 'Evan',
-            'email': 'evan@nhl.com',
-            'password': 'evan'
-        },
-        {
-            'username': 'Gabe',
-            'email': 'gabe@nhl.com',
-            'password': 'gabe'
-        },
-        {
-            'username': 'Dallas',
-            'email': 'dallas@nhl.com',
-            'password': 'dallas'
-        },
-        {
-            'username': 'Mack',
-            'email': 'mack@nhl.com',
-            'password': 'mack'
-        },
-        {
-            'username': 'Mike B',
-            'email': 'mikeb@nhl.com',
-            'password': 'mikeb'
-        },
-        {
-            'username': 'Mike Z',
-            'email': 'mikez@nhl.com',
-            'password': 'mikez'
-        },
-        {
-            'username': 'Mark',
-            'email': 'mark@nhl.com',
-            'password': 'mark'
-        }
-    ]
-
-    for play in player_dict:
-        hashed_pw = bcrypt.generate_password_hash(play['password']).decode('utf-8')
-        user = User(username=play['username'], email=play['email'], password=hashed_pw)
-        db.session.add(user)
-        db.session.commit()
-
-    for play in player_dict:
-        u_tally = Tally(user=play['username'])
-        db.session.add(u_tally)
-        db.session.commit()
-
-    skaters = {
-        'Pastrnak': ['Evan', 0],
-        'Perron': ['Evan', 1],
-        'Marchand': ['Gabe', 0],
-        'Landeskog': ['Gabe', 2],
-        'Kucherov': ['Dallas', 2],
-        'Stone': ['Dallas', 2],
-        'McDavid': ['Mack', 7],
-        'Ovechkin': ['Mack', 0],
-        'MacKinnon': ['Brian', 2],
-        'Point': ['Brian', 2],
-        'Draisaitl': ['Mike B', 6],
-        'Matthews': ['Mike B', 2],
-        'Rantanen': ['Mike Z', 2],
-        'Aho': ['Mike Z', 8],
-        'OReilly': ['Mark', 1],
-        'Bergeron': ['Mark', 1]
-    }
-
-    for skater, owner in skaters.items():
-        sk = PlayerTotals(player=skater, owner=owner[0], points=owner[1])
-        db.session.add(sk)
-
     db.session.commit()
